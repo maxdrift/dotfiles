@@ -1,0 +1,22 @@
+[color]
+	ui = true
+[push]
+	default = simple
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
+[color "diff"]
+	whitespace = red reverse
+[diff]
+	tool = vimdiff
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[core]
+	autocrlf = input
+	excludesfile = ~/.gitignore
+[include]
+	path = .gitconfig.user
+	path = .gitconfig.secrets
