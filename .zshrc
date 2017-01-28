@@ -7,17 +7,9 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 system_type=$(uname -s)
 if [ "$system_type" = "Darwin" ]; then
-    eval $(gdircolors $HOME/.dir_colors)
     ZSH_THEME="agnoster"
-    # redefine prompt_context for hiding user@hostname
-    prompt_context () { }
-
-    # Dir: current working directory
-    prompt_dir() {
-      prompt_segment blue gray '%1~'
-    }
+    ZSH_THEME="robbyrussell"
 else
-    eval $(dircolors -b $HOME/.dir_colors)
     ZSH_THEME="robbyrussell"
 fi
 
@@ -143,6 +135,20 @@ elif type compctl &>/dev/null; then
   compctl -K _pm2_completion + -f + pm2
 fi
 ###-end-pm2-completion-###
+
+# redefine prompt_context for hiding user@hostname
+prompt_context () {
+  if ([ "$USER" != "$DEFAULT_USER" ] || [ -n "$SSH_CLIENT" ]) && [ "$ZSH_THEME" != "agnoster" ]; then
+    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
+  fi
+}
+
+# Dir: current working directory
+prompt_dir() {
+  if [ "$ZSH_THEME" = "agnoster" ]; then
+      prompt_segment blue gray '%1~'
+  fi
+}
 
 source $HOME/.tokens.secrets
 
