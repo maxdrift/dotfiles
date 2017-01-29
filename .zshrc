@@ -5,13 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-system_type=$(uname -s)
-if [ "$system_type" = "Darwin" ]; then
-    ZSH_THEME="agnoster"
-    ZSH_THEME="robbyrussell"
-else
-    ZSH_THEME="robbyrussell"
-fi
+ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -89,6 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
@@ -138,9 +133,7 @@ fi
 
 # redefine prompt_context for hiding user@hostname
 prompt_context () {
-  if ([ "$USER" != "$DEFAULT_USER" ] || [ -n "$SSH_CLIENT" ]) && [ "$ZSH_THEME" != "agnoster" ]; then
-    prompt_segment black default "%(!.%{%F{yellow}%}.)$USER@%m"
-  fi
+  prompt_segment blue default "%(!.%{%F{yellow}%}.)$USER@%m"
 }
 
 # Dir: current working directory
