@@ -133,7 +133,7 @@ fi
 
 # redefine prompt_context for hiding user@hostname
 prompt_context () {
-  prompt_segment blue default "%(!.%{%F{yellow}%}.)$USER@%m"
+  prompt_segment red default "%(!.%{%F{yellow}%}.)$USER@%m"
 }
 
 # Dir: current working directory
