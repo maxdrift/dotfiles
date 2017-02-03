@@ -1,1 +1,2 @@
 .*.secrets
+.weechat/irc.conf
