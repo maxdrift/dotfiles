@@ -88,8 +88,8 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-#export NVM_DIR="/Users/maxdrift/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="/Users/maxdrift/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 ###-begin-pm2-completion-###
 ### credits to npm for the completion file model
@@ -143,5 +143,6 @@ prompt_dir() {
   fi
 }
 
+source $HOME/.zshrc.exports
 source $HOME/.tokens.secrets
 

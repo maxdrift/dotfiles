@@ -1,4 +1,6 @@
 [user]
-        email = riccardo.massari@grandparade.co.uk
+        email = maxdrift85@gmail.com
         name = Riccardo Massari
-        signingkey = D589EFAD4CE4E8C1
+        signingkey = 045E42D0F3F96214
+[commit]
+        gpgsign = true
